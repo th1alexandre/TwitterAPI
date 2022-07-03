@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from tweet.serializer import TweetSerializer
+from tweet.models import Tweet
 
-# Create your views here.
+class TweetsAPI(ModelViewSet):
+    queryset = Tweet.objects.all()
+    serializer_class = TweetSerializer
